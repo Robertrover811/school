@@ -1,3 +1,9 @@
+// Features: Individually controlled LED’s that can be turned on and off separately or all together
+
+// Commands: allon, alloff, one on, one off, two on, two off
+
+// Status naming conventions: 01: all on successful, 00: all off successful, 11: onboard on successful, 10: onboard off success, 21: LED one on success, 20: LED one off success, 31: LED two on success, 30: LED two off success, -1: failure 
+
 int led1 = D7;
 int led2 = D1;
 int led3 = D2;
@@ -44,22 +50,22 @@ int ledToggle (String command)
         digitalWrite(led1,LOW);
         return 10;
     }
-    if (command == "two on")
+    if (command == "one on")
     {
         digitalWrite(led2,HIGH);
         return 21;
     }
-    else if (command == "two off")
+    else if (command == "one off")
     {
         digitalWrite(led2,LOW);
         return 20;
     }
-    if (command == "three on")
+    if (command == "two on")
     {
         digitalWrite(led3,HIGH);
         return 31;
     }
-    else if (command == "three off")
+    else if (command == "two off")
     {
         digitalWrite(led3,LOW);
         return 30;
@@ -70,4 +76,3 @@ int ledToggle (String command)
     }
 }
 
-//that part could have been written better
